@@ -75,13 +75,12 @@ function calculateTotal (grossTotal, addedShipping, addedTax) {
 */
 
 function updateProdAvailability(product, selected, availability) {
-    console.log(availability - selected);
     if (availability - selected > 5) {
-        updateProdAvailabilityLabel(product, "AVAILABLE", "Keep Going");
+        updateProdAvailabilityLabel(product, "Keep Going", AVAILABLE);
     } else if (availability - selected < 5 && availability - selected > 0) {
-        updateProdAvailabilityLabel(product, "LIMITED_SUPPLY", "Not Many Left");
+        updateProdAvailabilityLabel(product, "Not many Left", LIMITED_SUPPLY);
     } else {
-        updateProdAvailabilityLabel(product, "OUT_OF_STOCK", "None Left");
+        updateProdAvailabilityLabel(product, "None Left", OUT_OF_STOCK);
     }
 }
 
