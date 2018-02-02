@@ -4,7 +4,8 @@
       Output: product line totals (double)
 */
 function calculateProdTotal (price, quantity) {
-    return 0;   // replace this!
+    var prodTotal = price*quantity;
+    return prodTotal;   // replace this!
 }
 
 /* 2. Complete the function below to calculate gross cart totals
@@ -16,7 +17,16 @@ function calculateProdTotal (price, quantity) {
             always have 3 elements (i.e., bananas, oranges, apples)
 */
 function calculateSubtotal (prodTotals) {
-    return 0;   // replace this!
+    var cats = document.getElementsByClassName("prodTotal");
+    var newCats = [];
+    for (i = 0; i < cats.length; i++) {
+        let currentCat = cats[i].textContent;
+        currentCat =  Number(currentCat.replace(/[^0-9\.-]+/g,""));
+        newCats.push(currentCat);
+    }
+    var totalCats = newCats[0] + newCats[1] + newCats[2];
+
+    return totalCats;   // replace this!
 }
 
 /* 3. Complete the function below to calculate added taxes
@@ -25,7 +35,8 @@ function calculateSubtotal (prodTotals) {
       Output: added taxes for the cart (double)
 */
 function calculateTaxes(grossTotal, taxRate) {
-    return 0;   // replace this!
+    var taxesYuck = grossTotal+(grossTotal*taxRate);
+    return taxesYuck;   // replace this!
 }
 
 /* 4. Complete the function below to calculate total
@@ -35,7 +46,9 @@ function calculateTaxes(grossTotal, taxRate) {
       Output: total cart amount inclusive of shipping and taxes (double)
 */
 function calculateTotal (grossTotal, addedShipping, addedTax) {
-    return 0;   // replace this!
+    var finalTotal = grossTotal + addedShipping + addedTax;
+    console.log(finalTotal);
+    return finalTotal;   // replace this!
 }
 
 /* 5. We want to inform the users when certain items run out of stock
@@ -62,5 +75,12 @@ function calculateTotal (grossTotal, addedShipping, addedTax) {
 
 */
 function updateProdAvailability(product, selected, availability) {
-    return; // replace this!
+    if (availability - selected <= 0) {
+        document.getElementsByClassName(product);
+    } else {
+        console.log("hello");
+    }
+    return "yes"; // replace this!
 }
+
+updateProdAvailability('orange', 4, 3);
