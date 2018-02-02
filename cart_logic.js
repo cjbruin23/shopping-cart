@@ -47,7 +47,6 @@ function calculateTaxes(grossTotal, taxRate) {
 */
 function calculateTotal (grossTotal, addedShipping, addedTax) {
     var finalTotal = grossTotal + addedShipping + addedTax;
-    console.log(finalTotal);
     return finalTotal;   // replace this!
 }
 
@@ -74,13 +73,15 @@ function calculateTotal (grossTotal, addedShipping, addedTax) {
             the label will change font color based on selection (green, yellow, red)
 
 */
+
 function updateProdAvailability(product, selected, availability) {
-    if (availability - selected <= 0) {
-        document.getElementsByClassName(product);
+    console.log(availability - selected);
+    if (availability - selected > 5) {
+        updateProdAvailabilityLabel(product, "AVAILABLE", "Keep Going");
+    } else if (availability - selected < 5 && availability - selected > 0) {
+        updateProdAvailabilityLabel(product, "LIMITED_SUPPLY", "Not Many Left");
     } else {
-        console.log("hello");
+        updateProdAvailabilityLabel(product, "OUT_OF_STOCK", "None Left");
     }
-    return "yes"; // replace this!
 }
 
-updateProdAvailability('orange', 4, 3);
